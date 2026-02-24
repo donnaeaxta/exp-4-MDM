@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Online Gallery - DOM Manipulation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: lightblue;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .gallery {
+      background: white;
+      width: 350px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px gray;
+    }
+    h2 {
+      color: darkblue;
+    }
+    img {
+      width: 200px;
+      border-radius: 10px;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    button {
+      background-color: blue;
+      color: white;
+      border: none;
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gallery">
+    <h2 id="title">ONLINE GALLERY</h2>
+    <img id="photo" src="https://wallpaperaccess.com/full/5713523.jpg" alt="Gallery Image">
+    <p id="description">Click the buttons to view images</p>
+
+    <div>
+      <button id="img1">Nature</button>
+      <button id="img2">City</button>
+      <button id="img3">Beach</button>
+    </div>
+    <div>
+      <button id="hide">Hide</button>
+      <button id="show">Show</button>
+      <button id="toggle">Toggle</button>
+      <button id="animate">Animate</button>
+    </div>
+  </div>
+
+  <script>
+    // Select elements using querySelector
+    const img = document.querySelector("#photo");
+    const desc = document.querySelector("#description");
+
+    // Change image and description dynamically
+    document.querySelector("#img1").addEventListener("click", () => {
+      img.src = "https://images.unsplash.com/photo-1501785888041-af3ef285b470";
+      desc.textContent = "Beautiful Nature View";
+    });
+
+    document.querySelector("#img2").addEventListener("click", () => {
+      img.src = "https://images.unsplash.com/photo-1467269204594-9661b134dd2b";
+      desc.textContent = "Modern City Lights";
+    });
+
+    document.querySelector("#img3").addEventListener("click", () => {
+      img.src = "https://images.unsplash.com/photo-1507525428034-b723cf961d3e";
+      desc.textContent = "Relaxing Beach Scene";
+    });
+
+    // Hide image
+    document.querySelector("#hide").addEventListener("click", () => {
+      img.style.display = "none";
+    });
+
+    // Show image
+    document.querySelector("#show").addEventListener("click", () => {
+      img.style.display = "block";
+    });
+
+    // Toggle image visibility
+    document.querySelector("#toggle").addEventListener("click", () => {
+      img.style.display = (img.style.display === "none") ? "block" : "none";
+    });
+
+    // Animate image
+    document.querySelector("#animate").addEventListener("click", () => {
+      img.style.transform = "scale(1.3)";
+      img.style.opacity = "0.5";
+      setTimeout(() => {
+        img.style.transform = "scale(1)";
+        img.style.opacity = "1";
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
+
